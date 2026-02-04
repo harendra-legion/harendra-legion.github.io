@@ -5,16 +5,12 @@
 <title>Inline Campaign - HelloBar Testing Playground</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Paste your HelloBar script below -->
-<!-- <script src="YOUR_HELLOBAR_SCRIPT.js" async></script> -->
-
 <meta name="hb-test-page" content="inline-page">
 
 <style>
 :root {
     --hb-orange: #ff5a1f;
     --hb-dark-orange: #e14b17;
-    --hb-light: #f4f1ee;
 }
 
 * {
@@ -86,6 +82,16 @@ nav a:hover {
     color: #333;
 }
 
+/* Dedicated Inline Anchor Spots */
+.hb-inline-spot {
+    margin: 60px 0;
+    min-height: 20px;
+}
+
+.hb-inline-spot > div {
+    margin: 25px 0 !important;
+}
+
 footer {
     text-align: center;
     padding: 40px;
@@ -117,38 +123,41 @@ footer {
 
     <div class="card">
         <h2>Inline Campaign Overview</h2>
-        <p>This page is designed to validate inline embed campaigns placed directly inside content sections. 
-        It simulates a long-form marketing article where inline forms can appear naturally between content blocks.</p>
+        <p>This page validates inline embed campaigns placed naturally between structured content sections.</p>
     </div>
+
+    <!-- Inline Placement 1 -->
+    <div id="hb-inline-1" class="hb-inline-spot"></div>
 
     <div class="card">
         <h3>Use Case Scenario</h3>
-        <p>Inline campaigns are commonly used inside blog articles, feature pages, and long landing pages where users are already engaged.</p>
+        <p>Inline campaigns are commonly used inside blog articles and long-form marketing pages.</p>
     </div>
 
     <div class="card">
         <h3>Engagement Section</h3>
-        <p>This section represents a content-heavy explanation block. Scroll depth triggers like 25%, 50%, and 75% can be validated here.</p>
+        <p>Scroll depth triggers such as 25%, 50% and 75% can be tested here with realistic spacing.</p>
     </div>
+
+    <!-- Inline Placement 2 -->
+    <div id="hb-inline-2" class="hb-inline-spot"></div>
 
     <div class="card">
         <h3>Product Features</h3>
-        <p>Businesses often embed lead forms mid-article to increase signups without disrupting the user journey.</p>
+        <p>Inline placements increase conversions without interrupting user flow.</p>
     </div>
 
     <div class="card">
         <h3>Advanced Targeting</h3>
-        <p>Test URL targeting, device targeting, and meta-based targeting on this page.</p>
+        <p>Validate URL targeting, device targeting and meta-based targeting on this page.</p>
     </div>
+
+    <!-- Inline Placement 3 -->
+    <div id="hb-inline-3" class="hb-inline-spot"></div>
 
     <div class="card">
         <h3>Performance Optimization</h3>
-        <p>Validate load timing, script execution order, and interaction with page layout.</p>
-    </div>
-
-    <div class="card">
-        <h3>Extended Content Block</h3>
-        <p>This additional block ensures enough scroll height for realistic percentage trigger validation.</p>
+        <p>Ensure HelloBar loads cleanly and maintains layout stability across devices.</p>
     </div>
 
     <div class="card">
@@ -162,7 +171,7 @@ footer {
     HelloBar QA Testing Site • Inline Campaign Page
 </footer>
 
-<!-- ===================== QA UTILITY SCRIPT ===================== -->
+<!-- QA Utility Script -->
 <script>
 (function () {
 
@@ -212,6 +221,8 @@ footer {
 
 })();
 </script>
+
 <script src="hb-loader.js"></script>
+
 </body>
 </html>
