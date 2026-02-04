@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alert Bell Campaign - HelloBar Testing Playground</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Production HelloBar Script -->
+<!-- <script src="YOUR_PRODUCTION_HELLOBAR_SCRIPT.js" async></script> -->
+
+<meta name="hb-test-page" content="alert-bell-page">
+
+<style>
+:root {
+    --hb-orange: #ff5a1f;
+    --hb-dark-orange: #e14b17;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background: #e6ded8;
+}
+
+header {
+    background: linear-gradient(135deg, #ff5a1f, #ff7a3d);
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+nav {
+    background: #dcdcdc;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--hb-orange);
+}
+
+nav a:hover {
+    color: var(--hb-dark-orange);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: #efefef;
+    padding: 30px;
+    margin-bottom: 35px;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+}
+
+.card h2, .card h3 {
+    color: var(--hb-orange);
+    margin-bottom: 15px;
+}
+
+.card p {
+    line-height: 1.7;
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #1e1e1e;
+    color: white;
+    margin-top: 60px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Alert Bell Campaign Testing</h1>
+    <p>Testing floating notification bell and click-trigger behavior</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="inline.html">Inline</a>
+    <a href="modal.html">Modal</a>
+    <a href="bar.html">Bar</a>
+    <a href="slider.html">Slider</a>
+    <a href="takeover.html">Takeover</a>
+    <a href="alert-bell.html">Alert Bell</a>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Alert Bell Overview</h2>
+        <p>This page validates floating notification bell campaigns that open modals or sliders when clicked.</p>
+    </div>
+
+    <div class="card">
+        <h3>Position Testing</h3>
+        <p>Verify bell placement at bottom corners and ensure no overlap with QA panel or navigation.</p>
+    </div>
+
+    <div class="card">
+        <h3>Click Trigger Behavior</h3>
+        <p>Test opening interaction when users click the alert bell icon.</p>
+    </div>
+
+    <div class="card">
+        <h3>Unread State Indicators</h3>
+        <p>Validate badge count, highlight animation and state persistence logic.</p>
+    </div>
+
+    <div class="card">
+        <h3>Frequency Rules</h3>
+        <p>Clear cookies using QA panel to retest first-visit appearance behavior.</p>
+    </div>
+
+    <div class="card">
+        <h3>Device Responsiveness</h3>
+        <p>Resize browser window to confirm correct mobile placement.</p>
+    </div>
+
+    <div class="card">
+        <h3>Extended Scroll Content</h3>
+        <p>This additional content ensures sufficient page height for realistic interaction testing.</p>
+    </div>
+
+    <div class="card">
+        <h3>Final Validation Section</h3>
+        <p>Confirm that alert bell does not interfere with slider, modal or bar campaigns.</p>
+    </div>
+
+</div>
+
+<footer>
+    HelloBar QA Testing Site • Alert Bell Campaign Page
+</footer>
+
+<!-- ===================== QA UTILITY SCRIPT ===================== -->
+<script>
+(function () {
+
+  var bar = document.createElement("div");
+  bar.style.position = "fixed";
+  bar.style.top = "0";
+  bar.style.left = "0";
+  bar.style.height = "4px";
+  bar.style.background = "#ff5a1f";
+  bar.style.width = "0%";
+  bar.style.zIndex = "9999";
+  document.body.appendChild(bar);
+
+  window.addEventListener("scroll", function () {
+    var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    bar.style.width = scrolled + "%";
+  });
+
+  var panel = document.createElement("div");
+  panel.style.position = "fixed";
+  panel.style.bottom = "15px";
+  panel.style.right = "15px";
+  panel.style.background = "white";
+  panel.style.padding = "15px";
+  panel.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+  panel.style.borderRadius = "8px";
+  panel.style.fontSize = "12px";
+  panel.style.zIndex = "9999";
+
+  panel.innerHTML = `
+    <strong>QA Panel</strong><br><br>
+    <div><b>Path:</b> ${window.location.pathname}</div>
+    <div><b>Query:</b> ${window.location.search || "None"}</div>
+    <div><b>Device:</b> ${/Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop"}</div>
+    <br>
+    <button onclick="document.cookie.split(';').forEach(function(c){document.cookie=c.replace(/^ +/,'').replace(/=.*/,'=;expires='+new Date().toUTCString()+';path=/');});alert('Cookies Cleared');">
+      Clear Cookies
+    </button>
+    <button onclick="localStorage.clear();alert('LocalStorage Cleared');">
+      Clear Storage
+    </button>
+  `;
+
+  document.body.appendChild(panel);
+
+})();
+</script>
+
+</body>
+</html>
