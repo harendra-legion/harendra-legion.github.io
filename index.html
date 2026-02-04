@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloBar Campaign Testing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Paste your HelloBar script below -->
+    <!-- <script src="https://my.hellobar.com/your-script-id.js" async></script> -->
+
+    <style>
+        :root {
+            --hb-orange: #ff5a1f;
+            --hb-dark-orange: #e14b17;
+            --hb-light: #fff7f2;
+            --hb-dark: #1e1e1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background: var(--hb-light);
+            color: var(--hb-dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff5a1f, #ff7a3d);
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--hb-orange);
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--hb-dark-orange);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+            color: var(--hb-orange);
+        }
+
+        .card p {
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: var(--hb-orange);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: var(--hb-dark-orange);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background: var(--hb-dark);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>HelloBar Testing Playground</h1>
+    <p>Dedicated environment for QA and campaign validation</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="inline.html">Inline</a>
+    <a href="modal.html">Modal</a>
+    <a href="bar.html">Bar</a>
+    <a href="slider.html">Slider</a>
+    <a href="takeover.html">Takeover</a>
+    <a href="alert-bell.html">Alert Bell</a>
+</nav>
+
+<div class="container">
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>Inline Campaign</h2>
+            <p>Test embedded HelloBar forms inside page content sections.</p>
+            <a class="btn" href="inline.html">Open Inline Page</a>
+        </div>
+
+        <div class="card">
+            <h2>Modal Popup</h2>
+            <p>Validate load delay, exit intent, and frequency controls.</p>
+            <a class="btn" href="modal.html">Open Modal Page</a>
+        </div>
+
+        <div class="card">
+            <h2>Top or Bottom Bar</h2>
+            <p>Test announcement bars with scroll and display logic.</p>
+            <a class="btn" href="bar.html">Open Bar Page</a>
+        </div>
+
+        <div class="card">
+            <h2>Slider Campaign</h2>
+            <p>Check slide in behavior from left or right side.</p>
+            <a class="btn" href="slider.html">Open Slider Page</a>
+        </div>
+
+        <div class="card">
+            <h2>Full Page Takeover</h2>
+            <p>Validate fullscreen overlay campaigns and background lock.</p>
+            <a class="btn" href="takeover.html">Open Takeover Page</a>
+        </div>
+
+        <div class="card">
+            <h2>Alert Bell</h2>
+            <p>Test notification style alert bell trigger interactions.</p>
+            <a class="btn" href="alert-bell.html">Open Alert Bell Page</a>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    HelloBar QA Testing Site • Hosted on GitHub Pages
+</footer>
+
+</body>
+</html>
